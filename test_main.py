@@ -59,8 +59,8 @@ class MainTest(unittest.TestCase):
         #    2 | -1 | -1 | -1
         #    3 | -5 | +1 | -5
         #    4 | -3 | -1 | -3
-        #      | -------------
-        #      |           -14
+        # ---------------------
+        #                  -14
         res = main.calculate_difficult(['T4', 'T5'])
         self.assertEqual(res, -14)
 
