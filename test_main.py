@@ -3,6 +3,7 @@ import unittest
 import unittest.mock as mock
 import main
 
+
 class MainTest(unittest.TestCase):
 
     def setUp(self):
@@ -29,10 +30,10 @@ class MainTest(unittest.TestCase):
         res = main._opponent('T1', ('T2', 'T1'))
         self.assertEqual(res, 'T2')
 
-    def test_find_match(self):       
+    def test_find_match(self):
         res = main._find_match('T1', 0)
         self.assertEqual(res, ('T1', 'T2'))
-    
+
     def test_match_difficult(self):
         res = main._match_difficult('T1', ('T1', 'T2'))
         self.assertEqual(res, -2)
@@ -53,13 +54,12 @@ class MainTest(unittest.TestCase):
         res = main.calculate_difficult(['T1'])
         self.assertEqual(res, -4)
 
-
-        # week | T4 | T5 | MIN 
-        #    0 | +1 | -3 | -3 
-        #    1 | -2 | +2 | -2  
-        #    2 | -1 | -1 | -1 
-        #    3 | -5 | +1 | -5 
-        #    4 | -3 | -1 | -3 
+        # week | T4 | T5 | MIN
+        #    0 | +1 | -3 | -3
+        #    1 | -2 | +2 | -2
+        #    2 | -1 | -1 | -1
+        #    3 | -5 | +1 | -5
+        #    4 | -3 | -1 | -3
         #      | -------------
         #      |           -14
         res = main.calculate_difficult(['T4', 'T5'])
@@ -71,7 +71,6 @@ class MainTest(unittest.TestCase):
     def test_main(self, calculate_difficult):
         main.main()
         calculate_difficult.assert_called_once_with(['T1', 'T2'])
-
 
 
 if __name__ == '__main__':
